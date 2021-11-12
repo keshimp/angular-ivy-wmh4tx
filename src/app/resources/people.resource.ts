@@ -11,16 +11,11 @@ export class PeopleResource<TModel> {
   /** Private BASE url - set only in the base resource, cannot be changed by other resources */
   private BASE_API_URL = 'https://swapi.dev/api/';
 
-  /** Protected API endpoint url - can be changed by other resources who extend base resource,
-   * cannot be changed by components who inject it
-   */
-  protected API_ENDPOINT_URL = '';
-
-  constructor(protected httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) {}
 
   public SearchPeople(searchString: string): Observable<TModel> {
     return this.httpClient
-      .get<TModel>(`${this.BASE_API_URL}/people/?search=${searchString}`)
+      .get<TModel>(`${this.BASE_API_URL}people/?search=${searchString}`)
       .pipe(catchError(this.handleError));
   }
 

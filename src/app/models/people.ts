@@ -1,3 +1,10 @@
+export interface ApiResponse {
+  count: number;
+  next: number;
+  previous: number;
+  results: ApiPerson[];
+}
+
 /**
  * The model that represents a star wars character
  */
@@ -10,12 +17,12 @@ export interface ApiPerson {
   /**
    * The height of the person
    */
-  height: number;
+  height: string;
 
   /**
    * the mass of the character
    */
-  mass: number;
+  mass: string;
 
   /**
    * The hair color of the character

@@ -1,12 +1,22 @@
-<form [formGroup]="FilterForm">
-  <div class="form-group">
-    <label> Search By Name: </label>
-    <input type="text" class="form-control" formControlName="search" />
-    <small
-      class="text-danger"
-      *ngIf="SearchForm.get('search')?.errors?.maxLength"
-    >
-      Your search is too long - please shorten it and try again.
-    </small>
-  </div>
-</form>
+<div class="col-12">
+  <form [formGroup]="SearchForm">
+    <div>
+      <label> Search By Name: </label>
+      <input type="text" class="form-control" formControlName="search" />
+      <small
+        class="text-danger"
+        *ngIf="SearchForm.get('search')?.errors?.maxLength"
+      >
+        Your search is too long - please shorten it and try again.
+      </small>
+    </div>
+  </form>
+</div>
+
+<div class="row">
+  <ul>
+    <li *ngFor="let person of SearchResults">
+      {{ person.name }}
+    </li>
+  </ul>
+</div>
